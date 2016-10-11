@@ -23,18 +23,16 @@
 
 #include "ESP8266WiFi.h"
 #include "DHT.h"
+#include "secrets.h"
 #define DHTPIN 2    // what digital pin we're connected to
                     // pin2 to D4 on esp board
 
 #define DHTTYPE DHT11
 #define GOOGLE_SHEETS_QUOTA_TIMEOUT 10000
-DHT dht(DHTPIN,DHTTYPE);
-
 const char WEBSITE[] = "api.pushingbox.com"; // pushingbox API server
-const String devid = "DEVICE_ID"; // device ID from Pushingbox
+const String devid = DEVICE_ID; // device ID from Pushingbox
 
-const char* MY_SSID = "ssid";
-const char* MY_PWD =  "pwd";
+DHT dht(DHTPIN,DHTTYPE);
 
 void setup() {
   Serial.begin(115200);
